@@ -1,0 +1,43 @@
+#!/usr/bin/make -f
+
+# See debhelper(7) (uncomment to enable).
+# Output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+
+# See FEATURE AREAS in dpkg-buildflags(1).
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# See ENVIRONMENT in dpkg-buildflags(1).
+# Package maintainers to append CFLAGS.
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# Package maintainers to append LDFLAGS.
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+
+%:
+	dh $@
+
+
+# dh_make generated override targets.
+# This is an example for Cmake (see <https://bugs.debian.org/641051>).
+override_dh_auto_configure:
+	cargo fetch --locked
+
+
+override_dh_auto_build:
+	cargo build --release --locked
+	cargo run --release --locked --bin rbw -- gen-completions bash > debian/rbw.bash-completion
+	cargo run --release --locked --bin rbw -- gen-completions zsh > debian/_rbw
+	cargo run --release --locked --bin rbw -- gen-completions fish > debian/rbw.fish
+
+override_dh_auto_test:
+    RUST_BACKTRACE=1 cargo test --release --locked || true
+
+override_dh_auto_install:
+	install -Dm 755 target/release/rbw -t debian/rbw/usr/bin/
+	install -Dm 755 target/release/rbw-agent -t debian/rbw/usr/bin/
+	install -Dm 644 LICENSE -t debian/rbw/usr/share/licenses/rbw/
+	install -Dm 644 debian/rbw.bash-completion debian/rbw/usr/share/bash-completion/completions/rbw
+	install -Dm 644 debian/_rbw debian/rbw/usr/share/zsh/site-functions/_rbw
+	install -Dm 644 debian/rbw.fish debian/rbw/usr/share/fish/vendor_completions.d/rbw.fish

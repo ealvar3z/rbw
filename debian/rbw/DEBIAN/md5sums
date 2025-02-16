@@ -1,0 +1,10 @@
+7d19eb624e2e710c12e7c975127d7b6a  usr/bin/rbw
+319f73caed712ebc78a554236de172ca  usr/bin/rbw-agent
+7d481e3481bcf135b6efe6cdf14754cb  usr/share/bash-completion/completions/rbw
+0acea6fd303a54b6274636016944be33  usr/share/doc-base/rbw.rbw
+46ddd225324fd9c9a47a25ef7ebf9e3e  usr/share/doc/rbw/README.Debian
+39a37afb759da5110d84af6e751b0e93  usr/share/doc/rbw/changelog.gz
+3f64e0c9571df0026da95a70ed385fa0  usr/share/doc/rbw/copyright
+d9fe0e9cce7c66a9a1f796216ec1b82f  usr/share/fish/vendor_completions.d/rbw.fish
+808a67b30f5eff476654202d2e0bb85c  usr/share/licenses/rbw/LICENSE
+e4eab02f31b46b0abd0c3db9105df874  usr/share/zsh/site-functions/_rbw
