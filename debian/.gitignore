@@ -1,0 +1,5 @@
+*.ex
+_rbw
+*.bash-complet*
+.debhelper/*
+rbw.*
