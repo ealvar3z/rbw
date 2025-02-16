@@ -1,4 +1,4 @@
 /pkg
 /target
 /target-ra
-/debian/*.ex
+*.ex
