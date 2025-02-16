@@ -1,0 +1,13 @@
+Package: rbw-dbgsym
+Package-Type: ddeb
+Source: rbw
+Version: 1.13.2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: e. alvarez <eax@alvar3z.com>
+Installed-Size: 4244
+Depends: rbw (= 1.13.2)
+Section: debug
+Priority: optional
+Description: debug symbols for rbw
+Build-Ids: 9a389173b3f6332379a42c644d5d1a81cc3c69a8 fd49c202844371d5eb15eb8051e4c75bae34f0d4

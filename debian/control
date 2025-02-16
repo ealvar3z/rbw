@@ -1,0 +1,21 @@
+Source: rbw
+Section: utils
+Priority: optional
+Maintainer: e. alvarez <eax@alvar3z.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (=13), cargo, rustc, git, musl-tools, jq
+Standards-Version: 4.6.2
+Homepage: https://git.tozt.net/rbw
+#Vcs-Browser: https://salsa.debian.org/debian/rbw
+#Vcs-Git: https://salsa.debian.org/debian/rbw.git
+
+Package: rbw
+Architecture: any
+Multi-Arch: foreign
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ pinentry
+Description: unofficial Bitwarden CLI 
+ A Rust-based command-line interface (CLI) for interacting with Bitwarden.
