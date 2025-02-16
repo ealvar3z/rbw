@@ -1,6 +1,8 @@
 rbw for Debian
 -------------
 
-<Possible notes regarding this package - if none, delete this file.>
+The cargo and rustc packages from apt aren't version compatible with upstream.
+Use of rustup stable chains are req'd. Which means that `dpkg-buildpackage` must
+be build with the `-d` flag.
 
  -- e. alvarez <eax@unknown>  Sat, 15 Feb 2025 20:21:25 -0500
